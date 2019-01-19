@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 public class HelloController implements Controller
 {
     private static final Log logger = LogFactory.getLog(HelloController.class);
-
     /**
      * handleRequest是Controller接口必须实现的方法
      * 该方法的参数是对应请求的HttpServletRequest和HttpServletResponse
@@ -27,10 +26,10 @@ public class HelloController implements Controller
         ModelAndView mv = new ModelAndView();
 
         //添加模型数据，可以是任意POJO对象
-        mv.addObject("message", "Hello World");
+        mv.addObject("message", "This is message from Spring");
 
         //设置逻辑视图名，视图解析器会根据该名字解析到具体的视图页面
-        mv.setViewName("/welcome.jsp");
+        mv.setViewName("/WEB-INF/views/welcome.jsp");
 
         //返回ModelAndView对象
         return mv;
