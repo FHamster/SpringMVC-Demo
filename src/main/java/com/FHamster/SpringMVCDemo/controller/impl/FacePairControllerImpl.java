@@ -1,16 +1,21 @@
 package com.FHamster.SpringMVCDemo.controller.impl;
 
-import com.FHamster.SpringMVCDemo.controller.FacePairController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-public class FacePairControllerImpl implements FacePairController
+@Controller
+public class FacePairControllerImpl
 {
-    @Override
-    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception
+    @RequestMapping(value = "/hello")
+    public ModelAndView hello()
     {
-        return null;
+        ModelAndView mv = new ModelAndView();
+
+        mv.addObject("message", "message from spring");
+
+        mv.setViewName("hello");
+
+        return mv;
     }
 }
