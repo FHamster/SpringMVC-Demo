@@ -1,5 +1,7 @@
 package com.FHamster.SpringMVCDemo.controller;
 
-public interface FacePairController
+import org.springframework.web.servlet.mvc.Controller;
+
+public interface FacePairController extends Controller
 {
 }
