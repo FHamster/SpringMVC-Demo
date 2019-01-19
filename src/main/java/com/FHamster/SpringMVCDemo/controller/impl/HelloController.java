@@ -1,26 +1,34 @@
 package com.FHamster.SpringMVCDemo.controller.impl;
 
+import com.FHamster.SpringMVCDemo.controller.FacePairController;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-public class HelloController implements Controller
+/**
+ * HelloControllers是基于注解的控制器
+ * 可以同时处理多个请求动作，并且无需实现任何接口
+ * org.springframework.stereotype.Controller注解用于指示该类是一个控制器
+ */
+@Controller
+public class HelloController implements FacePairController
 {
     private static final Log logger = LogFactory.getLog(HelloController.class);
+
     /**
-     * handleRequest是Controller接口必须实现的方法
-     * 该方法的参数是对应请求的HttpServletRequest和HttpServletResponse
-     * 该方法必须返回一个包含视图名或视图名和模型的ModelAndView
+     * org.springframework.web.bind.annotation.RequestMapping注解
+     * 用于映射请求的URL和请求的方法等等。本例用来映射"/hello"
+     * hello只是一个普通方法
+     * 该方法返回一个ModelAndView对象
+     * @return
      */
-    @Override
-    public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception
+    @RequestMapping(value = "/hello")
+    public ModelAndView hello()
     {
         //记入日志
-        logger.info("ModelAndView被调用");
+        logger.info("hello方法被调用");
 
         //创建准备返回的ModelAndView对象，该对象通常包含了返回视图名、模型名称以及模型对象
         ModelAndView mv = new ModelAndView();
