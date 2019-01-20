@@ -1,2 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为Dao接口方法提供sql语句配置 -->
+<mapper namespace="com.FHamster.SpringMVCDemo.dao.FacePairDao">
+    <!--自定义返回结果集--><!--
+    <resultMap id="FacePairDao" type="FacePairBean">
+        &lt;!&ndash;<result property=""></result>&ndash;&gt;
+    </resultMap>-->
+
+
+    <select id="selectAll" resultType="com.FHamster.SpringMVCDemo.model.FacePairBean" >
+        select * from facepair
+    </select>
+
+    <select id="selectById" resultType="com.FHamster.SpringMVCDemo.model.FacePairBean" parameterType="string">
+        select * from facepair where id = #{id}
+    </select>
+</mapper>

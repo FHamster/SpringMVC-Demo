@@ -1,4 +1,4 @@
-package com.FHamster.SpringMVCDemo.controller.impl;
+package com.FHamster.SpringMVCDemo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ public class FacePairControllerImpl
 
         mv.addObject("message", "message from spring");
 
-        mv.setViewName("hello");
+        mv.setViewName("index");
 
         return mv;
     }
